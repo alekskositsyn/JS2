@@ -29,7 +29,7 @@ const renderProduct = (title, price) => {
 };
 
 const catalogInit = (list) => {
-    const productList = list.map((item) => renderProduct(item.title, item.price));
+    const productList = list.map((item) => renderProduct(item.title, item.price)).join('');
     console.log(productList);
     document.querySelector('.products').innerHTML = productList;
 };
