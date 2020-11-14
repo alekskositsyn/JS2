@@ -20,18 +20,21 @@ const products = [{
     },
 ];
 
-const renderProduct = (title, price) => {
-    return `<div class="product-item">
-                <h3>${title}</h3>
-                <p>${price}</p>
-                <button class="by-btn">Добавить в корзину</button>
+const renderProduct = (item, img = 'https://placehold.it/200x150') => {
+    return `<div class="product-item" data-id="${item.id}">
+                <img src="${img}" alt="Some img">
+                <div class="desc">
+                    <h3>${item.title}</h3>
+                    <p>${item.price} \u20bd</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
               </div>`;
 };
 
 const catalogInit = (list) => {
-    const productList = list.map((item) => renderProduct(item.title, item.price)).join('');
+    const productList = list.map((item) => renderProduct(item)).join('');
     console.log(productList);
-    document.querySelector('.products').innerHTML = productList;
+    document.querySelector('.products').insertAdjacentHTML("beforeend", productList)
 };
 
 catalogInit(products);
