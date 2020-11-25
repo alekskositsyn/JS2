@@ -71,14 +71,28 @@ class List {
       block.insertAdjacentHTML('beforeend', productObj.render());
     }
   }
+
+  /**
+   * метод поиска товаров
+   * @param value - поисковый запрос
+   */
+  filter(value){
+    const regexp = new RegExp(value, 'i');
+    this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
+    this.allProducts.forEach(el => {
+      const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+      if(!this.filtered.includes(el)){
+        block.classList.add('invisible');
+      } else {
+        block.classList.remove('invisible');
+      }
+    })
+  }
   _init(){
     return false
   }
 }
 
-/**
- * Класс продукта
- */
 class Item{
   constructor(el, img = 'https://placehold.it/200x150'){
     this.product_name = el.product_name;
@@ -108,6 +122,10 @@ class ProductsList extends List{
         this.cart.addProduct(e.target);
       }
     });
+    document.querySelector('.search-form').addEventListener('submit', e => {
+      e.preventDefault();
+      this.filter(document.querySelector('.search-field').value)
+    })
   }
 }
 
