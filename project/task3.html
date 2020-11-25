@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Интернет-магазин</div>
+        <div class="cart">
+            <form action="#" class="search-form">
+                <input type="text" class="search-field">
+                <button class="btn-search" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <button class="btn-cart" type="button">Корзина</button>
+            <div class="cart-block invisible"></div>
+        </div>
+    </header>
+    <form action="#" class="some" id="user_form">
+        <div>
+            <label>
+                Your name <br>
+                <input type="text" name="name" id="name">
+            </label>
+        </div>
+        <div>
+            <label>
+                Your phone <br>
+                <input type="tel" name="phone" id="phone">
+            </label>
+        </div>
+        <div>
+            <label>
+                Your email <br>
+                <input type="email" name="email" id="email">
+            </label>
+        </div>
+        <button id="val-btn">Submit</button>
+    </form>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous">
+    </script>
+    <script src="back_form_val.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById('user_form').addEventListener('submit', e => {
+                const valid = new Validator('user_form');
+                if (!valid.valid) {
+                    e.preventDefault();
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
