@@ -33,12 +33,6 @@ button:focus{
 .btn-cart, .logo{
     align-self: center;
 }
-/*.products {*/
-/*display: flex;*/
-/*justify-content: space-between;*/
-/*flex-wrap: wrap;*/
-/*padding: 40px 80px;*/
-/*}*/
 .products{
     column-gap: 30px;
     display: grid;
@@ -67,6 +61,7 @@ img {
     padding: 15px
 }
 .cart{
+    display: flex;
     position: relative;
 }
 .cart-block{
@@ -168,32 +163,4 @@ img {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #fafafa;
-}
-
-input {
-    width: 200px;
-    padding: 5px 10px;
-    margin: 10px 0;
-}
-input:focus{
-    outline: none;
-}
-button{
-    border: none;
-    background: rgb(88, 153, 51);
-    color: white;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 5px;
-}
-.error-msg{
-    color: red;
-    margin: 10px 0;
-}
-.invalid{
-    border: 2px solid red;
-}
-.valid{
-    border: 2px solid green;
 }
